@@ -1,0 +1,2 @@
+#!/bin/sh
+exec perl -MHTML::Entities -ne 'print decode_entities($_)'

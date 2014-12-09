@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+URL=http://www.allmusic.com/search/artists/`url-escape <<<"$*"`
+URL2=`curl -s $URL | grep artist/ | head -n1 | quotes | head -n1 |
+sed -e s,^,http://www.allmusic.com, -e s,\$,/related,`
+curl -s $URL2 | sed -n "/$RELATION/,/\/section/p" |
+grep href | perl -pe 's|.*?>(.*?)<.*|\1|' |
+html-decode

@@ -1,0 +1,2 @@
+#!/bin/sh
+RELATION="Followed By" amg-relations "$*"

@@ -1,0 +1,2 @@
+#!/bin/sh
+RELATION="Similar To" amg-relations "$*"
