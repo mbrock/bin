@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+URL=http://www.allmusic.com/search/artists/`url-escape <<<"$*"`
+curl -s $URL | grep artist/ | head -n1 | quotes | head -n1 |
+sed -e s,^,http://www.allmusic.com,

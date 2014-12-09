@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+curl -s `amg-artist-url "$*"`/discography |
+fgrep 'http://www.allmusic.com/album/' |
+while read line ; do echo $line | quotes | head -n1 ; done

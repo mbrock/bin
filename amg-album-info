@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+DATA=`curl -s $1`
+function lookup { echo "$DATA" | grep "$1" | quotes | sed -n $2p; }
+printf -- ' ![Album](%s) | %s | *%s* | %s | %s | [Spotify](%s)\n' \
+  "`lookup 'itemprop="image"' 2`" \
+  "`lookup 'data-artist=' 1`" \
+  "`lookup 'data-album=' 1`" \
+  "`lookup 'data-release-date=' 1`" \
+  "`lookup rating-allmusic- 1 | sed -e 's/[^0-9]//g'`" \
+  "`lookup 'class="spotify"' 1`"

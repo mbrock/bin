@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+amg-album-urls "$*" | xargs -n 1 amg-album-info
